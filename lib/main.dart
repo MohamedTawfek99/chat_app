@@ -6,6 +6,8 @@ import 'cubit/bloc_observer.dart';
 import 'cubit/login_cubit/login_cubit.dart';
 import 'cubit/register/register_cubit.dart';
 import 'modules/login_screen.dart';
+// ignore_for_file: prefer_const_constructors
+
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
