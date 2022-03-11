@@ -37,6 +37,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
         },
         builder: (context, state) => ModalProgressHUD(
           inAsyncCall: RegisterCubit.get(context).isLoading,
+       color: Colors.grey.withOpacity(0.5),
+
+
           child: Scaffold(
                 appBar: AppBar(),
                 body: Padding(

@@ -38,6 +38,8 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         builder: (context, state) => ModalProgressHUD(
           inAsyncCall:isLoading ,
+          color: Colors.grey.withOpacity(0.5),
+
           child: Scaffold(
             appBar: AppBar(),
                 body: Padding(
