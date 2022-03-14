@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../cubit/register/register_cubit.dart';
@@ -57,7 +58,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline2!
-                                    .copyWith(color: Colors.black)),
+                                    .copyWith(color: Colors.white)),
                             const SizedBox(height: 25.0),
                             Text('Register To Chat With Our Friends!',
                                 style: Theme.of(context)
@@ -74,11 +75,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             //     prefix: Icons.person),
                             const SizedBox(height: 20.0),
                             defaultTextField(
+
                                 controller: emailController,
                                 hint: 'Email',
+
                                 prefix: Icons.email),
                             const SizedBox(height: 20.0),
                             TextFormField(
+                              style: TextStyle(color: Colors.white),
                               validator: (value) {
                                 if(value!.length<6){
                                   return 'Password must be at least 6 characters';
@@ -90,12 +94,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               controller: passwordController,
                               decoration: InputDecoration(
                                   hintText: 'Password',
-                                  border: const OutlineInputBorder(),
-                                  prefixIcon: const Icon(Icons.lock),
+                                  hintStyle: TextStyle(color: defaultColor),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: defaultColor),
+                                      borderRadius: BorderRadius.circular(20)),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(color: defaultColor),
+                                      borderRadius: BorderRadius.circular(20)),
+                                  prefixIcon: const Icon(Icons.lock,color:defaultColor ),
                                   suffixIcon: IconButton(
-                                    icon: Icon(obscure
+                                    icon: Icon(
+                                        obscure
                                         ? Icons.remove_red_eye
-                                        : Icons.visibility_off),
+                                        : Icons.visibility_off,color:defaultColor ),
                                     onPressed: () {
                                       setState(() {
                                         obscure = !obscure;
@@ -126,10 +137,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     password: passwordController.text);
                                }
                              },
-                            child: const Text(
+                            child:   Text(
                               'REGISTER',
                               style: TextStyle(
-                                  fontSize: 20.0, color: Colors.white),
+                                  fontSize: 20.0, color: HexColor('192734')),
                             ),
                           )),
 

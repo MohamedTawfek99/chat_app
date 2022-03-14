@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
 
-const MaterialColor? defaultColor=Colors.teal;
+const defaultColor=Colors.lightBlue;
 const kMessages='messages';

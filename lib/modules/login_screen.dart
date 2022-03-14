@@ -1,6 +1,7 @@
 import 'package:chat_app/modules/register__screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
  import '../cubit/login_cubit/login_cubit.dart';
 import '../cubit/login_cubit/login_states.dart';
@@ -57,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline2!
-                                    .copyWith(color: Colors.black)),
+                                    .copyWith(color: Colors.white)),
                             const SizedBox(height: 25.0),
                             Text('Login To Chat With Our Friends!',
                                 style: Theme.of(context)
@@ -75,6 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 prefix: Icons.email),
                             const SizedBox(height: 20.0),
                             TextFormField(
+                              style: TextStyle(color: Colors.white),
                               validator: (value){
                                 // if(value!.isEmpty){
                                 //   return 'This Field must not be null';
@@ -90,13 +92,20 @@ class _LoginScreenState extends State<LoginScreen> {
                               obscureText: obscure,
                               controller: passwordController,
                               decoration: InputDecoration(
+
                                   hintText: 'Password',
-                                  border: OutlineInputBorder(),
-                                  prefixIcon: const Icon(Icons.lock),
+                                  hintStyle: TextStyle(color: defaultColor),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: defaultColor),
+                                      borderRadius: BorderRadius.circular(20)),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(color: defaultColor),
+                                      borderRadius: BorderRadius.circular(20)),
+                                  prefixIcon: const Icon(Icons.lock,color: defaultColor),
                                   suffixIcon: IconButton(
                                     icon: Icon(obscure
                                         ? Icons.remove_red_eye
-                                        : Icons.visibility_off),
+                                        : Icons.visibility_off,color: defaultColor,),
                                     onPressed: () {
                                       setState(() {
                                         obscure = !obscure;
@@ -127,10 +136,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
                                   },
-                                  child: const Text(
+                                  child:  Text(
                                     'LOGIN',
                                     style: TextStyle(
-                                        fontSize: 20.0, color: Colors.white),
+                                        fontSize: 20.0, color: HexColor('192734')),
                                   ),
                                 )),
                             const SizedBox(height: 25.0),
@@ -145,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       .copyWith(
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.w500,
-                                          color: Colors.black),
+                                          color: Colors.white),
                                 ),
                                 const SizedBox(width: 2.0),
                                 TextButton(
